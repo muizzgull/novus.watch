@@ -12,13 +12,13 @@ export function HomePage() {
       <Navbar />
 
       <div className='heading-container flex justify-center ml-3'>
-        <p className='text-blue-900 font-bold text-9xl rm'>WELCOME</p>
+        <p className='text-blue-900 font-bold text-5xl mt-5 md:text-6xl lg:text-9xl rm'>WELCOME</p>
       </div>
 
       <div className='hero-image-container flex justify-center items-center mt-10 gap-5'>
-        <p className='ml-10 font-bold font text-4xl text-blue-800'>Where Elegance <br /> Meets Time. </p>
-        <img src={heroImage} className='w-62' />
-        <p className='mr-10 font-bold font text-4xl text-blue-800'>Buy now, <br /> or Regret Later.</p>
+        <p className='ml-10 font-bold font text-2xl md:text-3xl lg:text-4xl text-blue-800'>Where Elegance <br /> Meets Time. </p>
+        <img src={heroImage} className='w-60 ' />
+        <p className='mr-10 font-bold font text-2xl md:text-3xl lg:text-4xl text-blue-800'>Buy now, <br /> or Regret Later.</p>
       </div>
 
       <div className='buttons flex justify-center mt-10 ml-4 gap-6'>

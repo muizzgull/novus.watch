@@ -7,7 +7,7 @@ export function PolicyPage() {
       <Navbar />
 
       <div className='heading-one-container flex justify-center mt-10'>
-        <p className='text-white text-6xl font-bold'>We are value creators <br /> &nbsp; &nbsp; &nbsp; with hyperfocus</p>
+        <p className=' text-white text-3xl md:text-4xl lg:text-5xl font-bold'>We are value creators <br /> &nbsp; &nbsp; &nbsp; with hyperfocus</p>
       </div>
       <div className='heading-two-container flex justify-center'>
         <p className='text-blue-600 text-4xl font-bold mt-10'>What we Provide</p>
