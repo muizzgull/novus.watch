@@ -17,7 +17,7 @@ export function HomePage() {
 
       <div className='hero-image-container flex justify-center items-center mt-10 gap-5'>
         <p className='ml-10 font-bold font text-2xl md:text-3xl lg:text-4xl text-blue-800'>Where Elegance <br /> Meets Time. </p>
-        <img src={heroImage} className='w-60 ' />
+        <img src={heroImage} className='w-40 lg:w-60 ' />
         <p className='mr-10 font-bold font text-2xl md:text-3xl lg:text-4xl text-blue-800'>Buy now, <br /> or Regret Later.</p>
       </div>
 

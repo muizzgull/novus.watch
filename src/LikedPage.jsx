@@ -45,9 +45,9 @@ export function LikedPage({ likedProducts, setLikedProducts }) {
         return (
         
               <div key={i} className="liked-post rounded-2xl bg-white border-2 mt-10 pt-5 mb-10 flex flex-col justify-center items-center w-25% h-110">
-                <div className="flex flex-col justify-center items-center">
+                <div className="flex flex-col flex-wrap max-w-70 justify-center items-center">
                   <img className="w-38" src={likedProduct.image} />
-                  <p className='name font-extrabold text-l'>{likedProduct.name}</p>
+                  <center className='name font-extrabold text-l wrap-word'>{likedProduct.name}</center>
                   <p className='price font-extrabold text-xl text-red-600'>{likedProduct.price}</p>
                 </div>
                 <div className='flex justify-center items-center gap-7 p-5'>

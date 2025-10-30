@@ -20,6 +20,7 @@ export function ProductDetails({ selectedProduct }) {
 
           <div className="more-images flex gap-10 mb-2">
             {/* Thumbnail for the primary image */}
+            
             <div 
               className={`flex justify-center items-center h-20 ${selectedIndex === -1 ? 'border-3 rounded-2xl border-black' : ''} p-1`} 
             >
