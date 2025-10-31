@@ -8,6 +8,7 @@ import { ExplorePage } from './ExplorePage';
 import { ProductDetails } from './ProductDetails';
 import { LikedPage } from './LikedPage';
 import { CartPage } from './CartPage';
+import { ProductDetailsPage } from './components/ProductDetailsPage';
 import { products } from './products';
 
 import { useEffect, useState } from 'react';
@@ -40,11 +41,12 @@ export function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/policy" element={<PolicyPage />} />
-        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/" element={<HomePage cart={cart} />} />
+        <Route path="/policy" element={<PolicyPage cart={cart} />} />
+        <Route path="/contact" element={<ContactPage cart={cart} />} />
         <Route path="/explore" element={<ExplorePage products={products} likedProducts={likedProducts} setLikedProducts={setLikedProducts} cart={cart} setCart={setCart} cartMessage={cartMessage} setCartMessage={setCartMessage}/>}/>
-        <Route path="/liked" element={<LikedPage products={products} likedProducts={likedProducts} setLikedProducts={setLikedProducts} />} />
+        <Route path="/product/:id" element={<ProductDetailsPage products={products} likedProducts={likedProducts} setLikedProducts={setLikedProducts} cart={cart} setCart={setCart} cartMessage={cartMessage} setCartMessage={setCartMessage} />} />
+        <Route path="/liked" element={<LikedPage products={products} likedProducts={likedProducts} setLikedProducts={setLikedProducts} cart={cart} setCart={setCart} />} />
         <Route path="/cart" element={<CartPage cart={cart} setCart={setCart} />} />
       </Routes>
     </div>

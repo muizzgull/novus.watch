@@ -100,7 +100,7 @@ export function CartPage({ cart, setCart }) {
                     <img src={item.image} alt={item.name} className="w-16 h-16 object-cover rounded mr-4" />
                     <div>
                       <h3 className="font-semibold">{item.name}</h3>
-                      <p className="text-gray-600">Rs. {item.price}</p>
+                      <p className="text-gray-600">Rs. {item.price} </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
@@ -187,7 +187,7 @@ export function CartPage({ cart, setCart }) {
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="w-full cursor-pointer bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Place Order
                 </button>
