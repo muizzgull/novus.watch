@@ -2,7 +2,7 @@ import { Navbar } from './components/Navbar';
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 
-export function CartPage({ cart, setCart }) {
+export function CartPage({ cart, setCart, addOrder }) {
   const [checkoutForm, setCheckoutForm] = useState({
     name: '',
     email: '',
@@ -11,6 +11,11 @@ export function CartPage({ cart, setCart }) {
   });
 
   const [orderSuccess, setOrderSuccess] = useState(false);
+  const [isPlacingOrder, setIsPlacingOrder] = useState(false);
+
+  // Calculate delivery date (10 days from now)
+  const deliveryDate = new Date();
+  deliveryDate.setDate(deliveryDate.getDate() + 10);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -24,10 +29,16 @@ export function CartPage({ cart, setCart }) {
     setCart(cart.filter(item => item.id !== productId));
   };
 
-  const calculateTotal = () => {
+  const calculateSubtotal = () => {
     return cart.reduce((total, item) => {
       return total + (item.price * (item.quantity || 1));
     }, 0);
+  };
+
+  const DELIVERY_CHARGES = 500;
+
+  const calculateTotal = () => {
+    return calculateSubtotal() + DELIVERY_CHARGES;
   };
 
   const updateQuantity = (productId, newQuantity) => {
@@ -42,8 +53,9 @@ export function CartPage({ cart, setCart }) {
     }
   };
 
-  const handleCheckout = (e) => {
+  const handleCheckout = async (e) => {
     e.preventDefault();
+    setIsPlacingOrder(true);
 
     const templateParams = {
       to_email: 'mianmuizzgull@gmail.com',
@@ -52,7 +64,34 @@ export function CartPage({ cart, setCart }) {
       phone: checkoutForm.phone,
       address: checkoutForm.address,
       cart_items: cart.map(item => `${item.name} - Rs. ${item.price} x${item.quantity || 1}`).join('\n'),
-      total: `Rs. ${calculateTotal().toFixed(2)}`
+      subtotal: `Rs. ${calculateSubtotal().toFixed(2)}`,
+      delivery_charges: `Rs. ${DELIVERY_CHARGES}`,
+      total: `Rs. ${calculateTotal().toFixed(2)}`,
+      delivery_date: deliveryDate.toLocaleDateString()
+    };
+
+    // Create order object
+    const orderData = {
+      id: Date.now().toString(),
+      date: new Date().toISOString(),
+      deliveryDate: deliveryDate.toISOString(),
+      customer: {
+        name: checkoutForm.name,
+        email: checkoutForm.email,
+        phone: checkoutForm.phone,
+        address: checkoutForm.address
+      },
+      items: cart.map(item => ({
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        quantity: item.quantity || 1,
+        image: item.image
+      })),
+      subtotal: calculateSubtotal(),
+      deliveryCharges: DELIVERY_CHARGES,
+      total: calculateTotal(),
+      status: 'Processing'
     };
 
     emailjs.send(
@@ -63,12 +102,17 @@ export function CartPage({ cart, setCart }) {
     )
     .then((result) => {
       console.log('Email sent successfully:', result.text);
+      // Add order to state (this will also save to localStorage via useEffect)
+      addOrder(orderData);
+
+      setIsPlacingOrder(false);
       setOrderSuccess(true);
       setCart([]);
       setCheckoutForm({ name: '', email: '', phone: '', address: '' });
       setTimeout(() => setOrderSuccess(false), 3000);
     }, (error) => {
       console.log('Failed to send email:', error.text);
+      setIsPlacingOrder(false);
       alert('Failed to place order. Please try again.');
     });
   };
@@ -128,14 +172,52 @@ export function CartPage({ cart, setCart }) {
                   </div>
                 </div>
               ))}
-              <div className="mt-4 text-right">
-                <p className="text-xl font-bold">Total: Rs. {calculateTotal().toFixed(2)}</p>
+              <div className="mt-4 space-y-2">
+                <div className="flex justify-between text-gray-600">
+                  <span>Subtotal:</span>
+                  <span>Rs. {calculateSubtotal().toFixed(2)}</span>
+                </div>
+                <div className="flex justify-between text-gray-600">
+                  <span>Delivery Charges:</span>
+                  <span>Rs. {DELIVERY_CHARGES}</span>
+                </div>
+                <div className="border-t pt-2 flex justify-between text-xl font-bold text-gray-900">
+                  <span>Total:</span>
+                  <span>Rs. {calculateTotal().toFixed(2)}</span>
+                </div>
               </div>
             </div>
 
             {/* Checkout Form */}
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h2 className="text-2xl font-semibold mb-4">Checkout</h2>
+
+              {/* Delivery Information */}
+              <div className="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                <div className="flex items-center gap-2 mb-2">
+                  <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v4m-6 4v10a2 2 0 002 2h4a2 2 0 002-2V11M9 11h6" />
+                  </svg>
+                  <h3 className="text-lg font-semibold text-blue-900">Estimated Delivery</h3>
+                </div>
+                <p className="text-blue-800">
+                  Your order will reach you till <span className="font-bold">{deliveryDate.toLocaleDateString()}</span>
+                </p>
+              </div>
+              <div className="mb-6 p-4 bg-gray-50 rounded-lg">
+                <div className="flex justify-between text-sm text-gray-600 mb-1">
+                  <span>Subtotal:</span>
+                  <span>Rs. {calculateSubtotal().toFixed(2)}</span>
+                </div>
+                <div className="flex justify-between text-sm text-gray-600 mb-2">
+                  <span>Delivery Charges:</span>
+                  <span>Rs. {DELIVERY_CHARGES}</span>
+                </div>
+                <div className="border-t pt-2 flex justify-between text-lg font-bold text-gray-900">
+                  <span>Total:</span>
+                  <span>Rs. {calculateTotal().toFixed(2)}</span>
+                </div>
+              </div>
               <form onSubmit={handleCheckout}>
                 <div className="mb-4">
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
@@ -187,9 +269,14 @@ export function CartPage({ cart, setCart }) {
                 </div>
                 <button
                   type="submit"
-                  className="w-full cursor-pointer bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  disabled={isPlacingOrder}
+                  className={`w-full cursor-pointer py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${
+                    isPlacingOrder
+                      ? 'bg-gray-500 text-gray-300 cursor-not-allowed'
+                      : 'bg-indigo-600 text-white hover:bg-indigo-700'
+                  }`}
                 >
-                  Place Order
+                  {isPlacingOrder ? 'Placing Order...' : 'Place Order'}
                 </button>
               </form>
             </div>

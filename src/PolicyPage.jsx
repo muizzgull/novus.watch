@@ -31,7 +31,7 @@ export function PolicyPage({ cart }) {
           </h1>
           <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full mb-8"></div>
           <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto drop-shadow-lg">
-            We are value creators with hyperfocus on quality, trust, and customer satisfaction
+            Read our Policy
           </p>
         </div>
 
@@ -41,11 +41,10 @@ export function PolicyPage({ cart }) {
             <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-300 mb-4">
               What We Provide
             </h2>
-            <p className="text-lg text-blue-100">Comprehensive policies designed for your peace of mind</p>
           </div>
 
           {/* Policy Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 max-w-6xl mx-auto">
 
             {/* Return Policy */}
             <div className="group relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border border-white/20 rounded-3xl p-8 hover:scale-105 transition-all duration-500 shadow-2xl hover:shadow-blue-500/25">
@@ -67,6 +66,18 @@ export function PolicyPage({ cart }) {
                 <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 text-center">Delivery</h3>
                 <p className="text-blue-100 text-center leading-relaxed">
                   We offer Cash on Delivery service. Pay only when you receive your order at your doorstep. Safe and secure delivery within Pakistan.
+                </p>
+              </div>
+            </div>
+
+            {/* Data Storage Policy */}
+            <div className="group relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border border-white/20 rounded-3xl p-8 hover:scale-105 transition-all duration-500 shadow-2xl hover:shadow-orange-500/25">
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="text-6xl mb-6 text-center">💾</div>
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 text-center">Data Storage</h3>
+                <p className="text-blue-100 text-center leading-relaxed">
+                  Clearing your browser cache may remove all saved data including your cart items, liked products, and order history. Please be cautious when clearing browser data.
                 </p>
               </div>
             </div>
