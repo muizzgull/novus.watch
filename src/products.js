@@ -10,7 +10,7 @@ import roninGold3 from '../public/home/images/ronin-gold-watch-more4.webp'
     {
   id: '1',
   name: 'Ronin: R-014 LUXE Smart Watch',
-  price: 'Rs. 11000',
+  price: 8000,
   image: `${roninGold}`,
   description: `
     ✨ Curren Original Smartwatch: Power & Elegance
@@ -44,9 +44,9 @@ import roninGold3 from '../public/home/images/ronin-gold-watch-more4.webp'
   type: 'Original',
   moreImages: [{image: roninGold1}, {image: roninGold2}, {image: roninGold3}],
 }, {
-      id: '2',
-      name: 'Ronin: R-013 Rugged Smart Watch',
-      price: 'Rs. 8000',
+  id: '2',
+  name: 'Ronin: R-013 Rugged Smart Watch',
+  price: 8000,
       image: `../public/home/images/ronin-watch-2.webp`,
       description: `Display Type: AMOLED, Screen Size: 2.01", Pixel Resolution: 240 × 296, Ai Enabled Watch Faces, Max Brightness: 550 nits. Physical appearance: Watch Case Material: Rugged Design, Strap Size &amp; Material: 22mm with &amp; Silicone &amp; Chain, Water Resistance: IP67 Rating, Weight with Chain Strap: 107 grams, Weight with Silicone Strap: 50 grams. Battery & Charging: Typical usage Time: 3-4 days, Standby Duration: Up to 7 days, Battery Capacity: 250mAh, Charging Duration: Up to 2 hours. Health & Wellness: Step Counter, 24/7 Heart Rate Monitoring, Distance Measurement, Sleep Analysis, Blood Pressure Tracking, Stress Level Monitoring, SpO₂ (Blood Oxygen) Monitoring, Calorie Burn Tracking, Activity Log &amp; History, Guided Breathing Exercises, Women's Health &amp; Cycle Tracking, Multi-Sport Modes. Enhanced Smartwatch Features: Caller Name Visibility, One-Tap Call Rejection, Phone Finder Feature, Quick-Access Calculator, Control Camera Shutter Remotely, Built-in Stopwatch &amp; Timer, Screen Brightness Adjustment, Set Alarms &amp; Custom Reminders, Live Weather Updates, Raise-to-Wake Functionality, Haptic (Vibration) Alerts, Do Not Disturb (DND) Setting, Remote Music Control, Interactive Games. What's inside the box: 1x Smartwatch, 2x Charging Cables, User Manual, Warranty Card, 2x Straps.`,
       deliveryCharges: 'Rs. 500',
@@ -55,7 +55,7 @@ import roninGold3 from '../public/home/images/ronin-gold-watch-more4.webp'
     }, {
       id: '3',
       name: 'Curren Watch Original',
-      price: '$29.99',
+      price: 8000,
       image: `${imageFour}`,
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat null.',
       deliveryCharges: 'Rs. 500',
@@ -64,7 +64,7 @@ import roninGold3 from '../public/home/images/ronin-gold-watch-more4.webp'
     }, {
       id: '4',
       name: 'Classic Luxury Watch for Men / Boys.',
-      price: 'Rs. 599',
+      price: 8000,
       image: `${productImage}`,
       description: 'Stylish Stainless Steel Analog Quartz Mens Watches',
       deliveryCharges: 'Rs. 500',
@@ -73,7 +73,7 @@ import roninGold3 from '../public/home/images/ronin-gold-watch-more4.webp'
     }, {
       id: '5',
       name: 'Curren Watch Original',
-      price: '$29.99',
+      price: 8000,
       image: `${imageFour}`,
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat null.',
       deliveryCharges: 'Rs. 500',
@@ -82,7 +82,7 @@ import roninGold3 from '../public/home/images/ronin-gold-watch-more4.webp'
     }, {
       id: '6',
       name: 'Classic Luxury Watch for Men / Boys.',
-      price: 'Rs. 599',
+      price: 8000,
       image: `${imageFour}`,
       description: 'Stylish Stainless Steel Analog Quartz Mens Watches',
       deliveryCharges: 'Rs. 500',
@@ -91,7 +91,7 @@ import roninGold3 from '../public/home/images/ronin-gold-watch-more4.webp'
     }, {
       id: '7',
       name: 'Curren Watch Original',
-      price: '$29.99',
+      price: 8000,
       image: `${productImage}`,
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat null.',
       deliveryCharges: 'Rs. 500',
@@ -100,7 +100,7 @@ import roninGold3 from '../public/home/images/ronin-gold-watch-more4.webp'
     }, {
       id: '8',
       name: 'Classic Luxury Watch for Men / Boys.',
-      price: 'Rs. 599',
+      price: 8000,
       image: `${imageThree}`,
       description: 'Stylish Stainless Steel Analog Quartz Mens Watches',
       deliveryCharges: 'Rs. 500',
