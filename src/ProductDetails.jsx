@@ -2,13 +2,12 @@ import { Navbar } from "./components/Navbar";
 import { useState } from 'react';
 
 export function ProductDetails({ selectedProduct }) {
-  // State to manage the currently displayed image and the selected thumbnail index
   const [mainImage, setMainImage] = useState(selectedProduct.image);
-  const [selectedIndex, setSelectedIndex] = useState(-1); // Initialize to -1 for primary image
+  const [selectedIndex, setSelectedIndex] = useState(-1);
 
   function changeImage(newImageSrc, index) {
     setMainImage(newImageSrc);
-    setSelectedIndex(index); // Update the selected thumbnail index
+    setSelectedIndex(index);
   }
 
   return (
@@ -19,7 +18,6 @@ export function ProductDetails({ selectedProduct }) {
           <img className="w-48 sm:w-56 md:w-60 max-w-full h-auto" src={mainImage} alt={selectedProduct.name} />
 
           <div className="more-images flex gap-4 sm:gap-6 md:gap-8 lg:gap-10 mb-2 mt-4 overflow-x-auto">
-            {/* Thumbnail for the primary image */}
             <div
               className={`flex justify-center items-center h-16 sm:h-18 md:h-20 flex-shrink-0 ${selectedIndex === -1 ? 'border-3 rounded-2xl border-black' : ''} p-1`}
             >
@@ -31,7 +29,6 @@ export function ProductDetails({ selectedProduct }) {
               />
             </div>
 
-            {/* Map over the 'moreImages' array to create clickable thumbnails */}
             {selectedProduct.moreImages.map((imageObj, index) => (
               <div
                 key={index}
@@ -57,15 +54,15 @@ export function ProductDetails({ selectedProduct }) {
             <h1 className="font-rm font-bold text-lg sm:text-xl md:text-2xl text-center lg:text-left">Type</h1>
             <p className="text-center lg:text-left">{selectedProduct.type}</p>
           </div>
-          <div className="description-container max-w-full lg:max-w-80 mt-4 sm:mt-6">
+          <div className="description-container max-w-full lg:max-w-110 xl:max-w-200 mt-4 sm:mt-6">
             <h1 className="font-rm font-xxb text-lg sm:text-xl md:text-2xl text-center lg:text-left">Description</h1>
-            <p className="description wrap-break-word text-sm sm:text-base text-center lg:text-left">{selectedProduct.description}</p>
+            <p className="description wrap-break-word font-medium text-sm sm:text-base text-center lg:text-left">{selectedProduct.description}</p>
           </div>
           <div className="delivery-charges-container pt-3">
             <h1 className="font-rm font-xxb text-lg sm:text-xl md:text-2xl text-center lg:text-left">Delivery Charges:</h1>
             <p className="font-bold text-red-700 text-lg sm:text-xl text-center lg:text-left">{selectedProduct.deliveryCharges}</p>
             <div className="flex justify-center lg:justify-start flex-col items-center lg:items-start mt-4">
-              <svg className="size-6 sm:size-7 md:size-8 cursor-default" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#EA3323">
+              <svg className="size-6 sm:size-7 md:size-8 cursor-default" xmlns="" height="24px" viewBox="0 -960 960 960" width="24px" fill="#EA3323">
                 <path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Z" />
               </svg>
               <p className="text-sm sm:text-base">Liked</p>

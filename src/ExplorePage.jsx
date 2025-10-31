@@ -30,7 +30,7 @@ export function ExplorePage({ products, likedProducts, setLikedProducts }) {
         {products.map((product, index) => {
           return (
             <div key={index} className='product w-full xs:w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 flex flex-col justify-center items-center gap-2 mb-6 sm:mb-8 md:mb-10 p-2'>
-              <img className='w-32 sm:w-36 md:w-40 h-36 sm:h-40 md:h-48 max-w-full object-cover rounded-lg' src={product.image} alt={product.name} />
+              <img className='w-32 sm:w-36 md:w-40 xl:w-55 h-36 sm:h-40 md:h-48 max-w-full object-cover rounded-lg' src={product.image} alt={product.name} />
               <center className='name font-extrabold text-sm sm:text-base md:text-lg text-center px-2'>{product.name}</center>
               <p className='price text-base sm:text-lg mt-auto font-semibold'>{product.price}</p>
               <div className='flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4 mt-auto w-full'>
