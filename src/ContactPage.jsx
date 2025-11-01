@@ -37,10 +37,10 @@ export function ContactPage({ cart }) {
       };
 
       await emailjs.send(
-        'service_qref42f', // Replace with your EmailJS service ID
-        'template_ognutm8', // Replace with your EmailJS template ID
+        'service_38g4e0a', // Replace with your EmailJS service ID
+        'template_f4eo3vj', // Replace with your EmailJS template ID
         templateParams,
-        'wgoq7xcLbnYxDE_Iy' // Replace with your EmailJS public key
+        '_Lfa8KvpjeKLnL4fc' // Replace with your EmailJS public key
       );
 
       setSubmitMessage('Message sent successfully! We\'ll get back to you soon.');
