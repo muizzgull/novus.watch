@@ -137,7 +137,7 @@ export function ProductDetailsPage({ products, likedProducts, setLikedProducts, 
               </h1>
 
               <h1 className="font-bold text-3xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400 text-center lg:text-left">
-                Rs. {selectedProduct.price}
+                {selectedProduct.price}
               </h1>
             </div>
 
