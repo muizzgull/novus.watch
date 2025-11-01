@@ -95,10 +95,10 @@ export function CartPage({ cart, setCart, addOrder }) {
     };
 
     emailjs.send(
-      'service_qref42f', // Replace with your EmailJS service ID
-      'template_roqones', // Replace with your EmailJS template ID
+      'service_7e7ydxo', // Replace with your EmailJS service ID
+      'template_0qtzrwf', // Replace with your EmailJS template ID
       templateParams,
-      'wgoq7xcLbnYxDE_Iy' // Replace with your EmailJS public key
+      '_Lfa8KvpjeKLnL4fc' // Replace with your EmailJS public key
     )
     .then((result) => {
       console.log('Email sent successfully:', result.text);
