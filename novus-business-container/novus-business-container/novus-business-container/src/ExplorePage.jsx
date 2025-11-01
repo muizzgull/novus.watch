@@ -73,14 +73,14 @@ export function ExplorePage({ products, likedProducts, setLikedProducts, cart, s
 
         {/* Products Grid */}
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-8">
             {products.map((product, index) => (
               <div key={index} className="group relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border border-white/20 rounded-3xl p-6 hover:scale-105 transition-all duration-500 shadow-2xl hover:shadow-blue-500/25 overflow-hidden">
                 {/* Product Image */}
                 <div className="relative mb-4">
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
                   <img
-                    className="relative w-full h-58 sm:h-32 md:h-36 lg:h-40 xl:h-44 object-contain rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-500"
+                    className="relative w-full h-48 object-cover rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-500"
                     src={product.image}
                     alt={product.name}
                   />
