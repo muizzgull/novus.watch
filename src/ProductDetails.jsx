@@ -26,7 +26,7 @@ export function ProductDetails({ selectedProduct, cart, setCart, cartMessage, se
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="min-h-screen bg-gray-50">
       <Navbar cart={cart} />
       {cartMessage && (
         <div className="fixed top-20 right-4 bg-green-500 text-white px-6 py-3 rounded-xl shadow-lg z-50 animate-bounce">
@@ -92,11 +92,11 @@ export function ProductDetails({ selectedProduct, cart, setCart, cartMessage, se
             <div className="space-y-8">
               {/* Product Title and Price */}
               <div className="space-y-4">
-                <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
                   {selectedProduct.name}
                 </h1>
                 <div className="flex items-center space-x-4">
-                  <span className="text-3xl font-bold text-blue-600">
+                  <span className="text-2xl font-bold text-blue-600">
                     Rs. {selectedProduct.price.toLocaleString()}
                   </span>
                   <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">
