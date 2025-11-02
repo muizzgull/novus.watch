@@ -201,7 +201,7 @@ export function CartPage({ cart, setCart, addOrder }) {
                   <h3 className="text-lg font-semibold text-blue-900">Estimated Delivery</h3>
                 </div>
                 <p className="text-blue-800">
-                  Your order will reach you till <span className="font-bold">{deliveryDate.toLocaleDateString()}</span>
+                  Your order will reach you till <span className="font-bold">{deliveryDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
                 </p>
               </div>
               <div className="mb-6 p-4 bg-gray-50 rounded-lg">

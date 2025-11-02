@@ -52,9 +52,9 @@ export function OrdersPage({ orders, cart }) {
                   <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 pb-4 border-b border-white/10">
                     <div>
                       <h3 className="text-2xl font-bold text-white mb-2">Order #{order.id || orderIndex + 1}</h3>
-                      <p className="text-purple-200">Placed on {new Date(order.date || Date.now()).toLocaleDateString()}</p>
+                      <p className="text-purple-200">Placed on {new Date(order.date || Date.now()).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
                       <p className="text-green-300 text-sm mt-1">
-                        📦 Will get Delivered Till: {new Date(order.deliveryDate || Date.now()).toLocaleDateString()}
+                        📦 Will get Delivered Till: {new Date(order.deliveryDate || Date.now()).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                       </p>
                     </div>
                     <div className="mt-4 md:mt-0">
