@@ -3,5 +3,5 @@
   <circle cx="16" cy="16" r="15" fill="#000000"/>
 
   <!-- NOVUS Letter N -->
-  <text x="16" y="21" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#8b5cf6">N</text>
+  <text x="16" y="23" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#8b5cf6">N</text>
 </svg>
