@@ -156,7 +156,16 @@ export function CartPage({ cart, setCart, addOrder }) {
                       >
                         -
                       </button>
-                      <span className="px-3 py-1 bg-gray-100 rounded">{item.quantity || 1}</span>
+                      <input
+                        type="number"
+                        min="1"
+                        value={item.quantity || 1}
+                        onChange={(e) => {
+                          const newQuantity = parseInt(e.target.value) || 1;
+                          updateQuantity(item.id, newQuantity);
+                        }}
+                        className="w-16 px-2 py-1 bg-gray-100 rounded text-center focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      />
                       <button
                         onClick={() => updateQuantity(item.id, (item.quantity || 1) + 1)}
                         className="bg-gray-200 text-gray-700 px-2 py-1 rounded hover:bg-gray-300"
