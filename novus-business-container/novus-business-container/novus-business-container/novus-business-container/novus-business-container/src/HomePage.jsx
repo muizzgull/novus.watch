@@ -118,7 +118,7 @@ export function HomePage({ cart }) {
       </div>
 
       {/* Custom CSS for animations */}
-      <style>{`
+      <style jsx>{`
         @keyframes fade-in-up {
           from {
             opacity: 0;

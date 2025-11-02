@@ -10,12 +10,14 @@ export function ProductDetailsPage({ products, likedProducts, setLikedProducts, 
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
   useEffect(() => {
-    const product = products.find(p => p.id === id);
-    if (product) {
-      setSelectedProduct(product);
-      setMainImage(product.image);
-    } else {
-      navigate('/explore');
+    if (products.length > 0) {
+      const product = products.find(p => p.id === id);
+      if (product) {
+        setSelectedProduct(product);
+        setMainImage(product.image);
+      } else {
+        navigate('/explore');
+      }
     }
   }, [id, products, navigate]);
 
@@ -153,32 +155,25 @@ export function ProductDetailsPage({ products, likedProducts, setLikedProducts, 
               </p>
             </div>
 
-            <div className="delivery-charges-container pt-6 border-t border-white/20 mt-6">
-              <h1 className="font-bold text-xl md:text-2xl text-white text-center lg:text-left">Delivery Charges:</h1>
-              <p className="font-bold text-2xl md:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400 text-center lg:text-left mt-2">
-                {selectedProduct.deliveryCharges}
-              </p>
+            <div className="flex justify-center lg:justify-start flex-col items-center lg:items-start mt-6 gap-4">
+              <button
+                onClick={() => addToCart(selectedProduct)}
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-blue-500/50"
+              >
+                Add to Cart
+              </button>
 
-              <div className="flex justify-center lg:justify-start flex-col items-center lg:items-start mt-6 gap-4">
-                <button
-                  onClick={() => addToCart(selectedProduct)}
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-blue-500/50"
-                >
-                  Add to Cart
-                </button>
-
-                <div className="flex justify-center lg:justify-start">
-                  {likedProducts.some(p => p.id === selectedProduct.id) ? (
-                    <svg onClick={() => likePost(selectedProduct)} className="w-8 h-8 cursor-pointer text-red-500 hover:scale-110 transition-transform duration-300 drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                    </svg>
-                  ) : (
-                    <svg onClick={() => likePost(selectedProduct)} className="w-8 h-8 cursor-pointer text-gray-400 hover:text-red-400 hover:scale-110 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                    </svg>
-                  )}
-                  <p className="text-blue-100 ml-2 text-sm md:text-base">Like</p>
-                </div>
+              <div className="flex justify-center lg:justify-start">
+                {likedProducts.some(p => p.id === selectedProduct.id) ? (
+                  <svg onClick={() => likePost(selectedProduct)} className="w-8 h-8 cursor-pointer text-red-500 hover:scale-110 transition-transform duration-300 drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                  </svg>
+                ) : (
+                  <svg onClick={() => likePost(selectedProduct)} className="w-8 h-8 cursor-pointer text-gray-400 hover:text-red-400 hover:scale-110 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                )}
+                <p className="text-blue-100 ml-2 text-sm md:text-base">Like</p>
               </div>
             </div>
           </div>

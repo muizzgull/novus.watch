@@ -3,15 +3,16 @@ import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 
 export function CartPage({ cart, setCart, addOrder }) {
-  const [checkoutForm, setCheckoutForm] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    address: ''
-  });
+   const [checkoutForm, setCheckoutForm] = useState({
+     name: '',
+     email: '',
+     phone: '',
+     address: ''
+   });
 
-  const [orderSuccess, setOrderSuccess] = useState(false);
-  const [isPlacingOrder, setIsPlacingOrder] = useState(false);
+   const [orderSuccess, setOrderSuccess] = useState(false);
+   const [isPlacingOrder, setIsPlacingOrder] = useState(false);
+   const [emailError, setEmailError] = useState('');
 
   // Calculate delivery date (10 days from now)
   const deliveryDate = new Date();
@@ -201,7 +202,7 @@ export function CartPage({ cart, setCart, addOrder }) {
                   <h3 className="text-lg font-semibold text-blue-900">Estimated Delivery</h3>
                 </div>
                 <p className="text-blue-800">
-                  Your order will reach you till <span className="font-bold">{deliveryDate.toLocaleDateString()}</span>
+                  Your order will reach you till <span className="font-bold">{deliveryDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
                 </p>
               </div>
               <div className="mb-6 p-4 bg-gray-50 rounded-lg">
@@ -238,10 +239,24 @@ export function CartPage({ cart, setCart, addOrder }) {
                     id="email"
                     name="email"
                     value={checkoutForm.email}
-                    onChange={handleInputChange}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      // Prevent anything after .com
+                      if (!value.includes('.com') || value.endsWith('.com')) {
+                        setEmailError('');
+                        handleInputChange(e);
+                      } else {
+                        setEmailError('Cannot enter text after .com');
+                      }
+                    }}
                     required
-                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                    className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 ${
+                      emailError ? 'border-red-500' : 'border-gray-300'
+                    }`}
                   />
+                  {emailError && (
+                    <p className="mt-1 text-sm text-red-600">{emailError}</p>
+                  )}
                 </div>
                 <div className="mb-4">
                   <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone</label>
@@ -250,7 +265,13 @@ export function CartPage({ cart, setCart, addOrder }) {
                     id="phone"
                     name="phone"
                     value={checkoutForm.phone}
-                    onChange={handleInputChange}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      // Only allow numbers
+                      if (/^\d*$/.test(value)) {
+                        handleInputChange(e);
+                      }
+                    }}
                     required
                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                   />
