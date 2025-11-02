@@ -63,7 +63,7 @@ export function CartPage({ cart, setCart, addOrder }) {
       from_email: checkoutForm.email,
       phone: checkoutForm.phone,
       address: checkoutForm.address,
-      cart_items: cart.map(item => `<tr><td>${item.name}</td><td>${item.quantity || 1}</td><td>Rs. ${item.price}</td></tr>`).join(''),
+      cart_items: cart.map(item => `${item.name} - Quantity: ${item.quantity || 1} - Price: Rs. ${item.price}`).join('\n'),
       subtotal: `Rs. ${calculateSubtotal().toFixed(2)}`,
       delivery_charges: `Rs. ${DELIVERY_CHARGES}`,
       total: `Rs. ${calculateTotal().toFixed(2)}`,

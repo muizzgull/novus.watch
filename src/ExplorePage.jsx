@@ -113,10 +113,6 @@ export function ExplorePage({ products, likedProducts, setLikedProducts, cart, s
             <div className="w-3 h-3 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-ping"></div>
             <div className="w-16 h-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"></div>
           </div>
-          <p className="text-xl md:text-2xl text-cyan-100 max-w-4xl mx-auto drop-shadow-lg mb-12 leading-relaxed">
-            Discover extraordinary timepieces that blend cutting-edge technology with timeless elegance.
-            <span className="block mt-2 text-lg text-purple-200">Find your perfect companion.</span>
-          </p>
 
           {/* Enhanced Search and Filters */}
           <div className="max-w-5xl mx-auto bg-gradient-to-r from-white/15 to-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/30 shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500">
