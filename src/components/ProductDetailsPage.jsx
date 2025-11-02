@@ -15,7 +15,7 @@ export function ProductDetailsPage({ products, likedProducts, setLikedProducts, 
       setSelectedProduct(product);
       setMainImage(product.image);
     } else {
-      // Don't navigate immediately, wait for products to load
+      // Only navigate if products are loaded and product not found
       if (products.length > 0) {
         navigate('/explore');
       }
@@ -59,21 +59,8 @@ export function ProductDetailsPage({ products, likedProducts, setLikedProducts, 
   }
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
-      {/* Background with gradient overlay */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{backgroundImage: `url('https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`}}
-      ></div>
-      <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-gray-900/60 to-blue-900/70"></div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
 
-      {/* Animated background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-4 h-4 bg-blue-400 rounded-full opacity-30 animate-ping"></div>
-        <div className="absolute top-40 right-40 w-6 h-6 bg-purple-400 rounded-full opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-40 left-40 w-3 h-3 bg-pink-400 rounded-full opacity-40 animate-bounce"></div>
-        <div className="absolute bottom-20 right-20 w-5 h-5 bg-yellow-400 rounded-full opacity-25 animate-ping"></div>
-      </div>
 
       <Navbar cart={cart} />
 
