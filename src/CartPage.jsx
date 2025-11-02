@@ -63,7 +63,7 @@ export function CartPage({ cart, setCart, addOrder }) {
       from_email: checkoutForm.email,
       phone: checkoutForm.phone,
       address: checkoutForm.address,
-      cart_items: cart.map(item => `<tr><td>${item.name}</td><td>${item.quantity || 1}</td><td>Rs. ${item.price}</td></tr>`).join(''),
+      cart_items: cart.map(item => `${item.name} - Rs. ${item.price} x${item.quantity || 1}`).join('\n'),
       subtotal: `Rs. ${calculateSubtotal().toFixed(2)}`,
       delivery_charges: `Rs. ${DELIVERY_CHARGES}`,
       total: `Rs. ${calculateTotal().toFixed(2)}`,
@@ -238,7 +238,14 @@ export function CartPage({ cart, setCart, addOrder }) {
                     id="email"
                     name="email"
                     value={checkoutForm.email}
-                    onChange={handleInputChange}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      // Prevent anything after .com
+                      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                      if (!value.includes('.com') || emailRegex.test(value)) {
+                        handleInputChange(e);
+                      }
+                    }}
                     required
                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                   />
@@ -250,7 +257,13 @@ export function CartPage({ cart, setCart, addOrder }) {
                     id="phone"
                     name="phone"
                     value={checkoutForm.phone}
-                    onChange={handleInputChange}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      // Only allow numbers
+                      if (/^\d*$/.test(value)) {
+                        handleInputChange(e);
+                      }
+                    }}
                     required
                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                   />
