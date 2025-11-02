@@ -98,7 +98,7 @@ export function ProductDetailsPage({ products, likedProducts, setLikedProducts, 
           />
 
           {/* Thumbnail Images */}
-          <div className="more-images flex gap-4 sm:gap-6 md:gap-8 lg:gap-10 mb-2 mt-4 w-full justify-center flex-wrap">
+          <div className="more-images flex gap-4 sm:gap-6 md:gap-8 lg:gap-10 mb-2 mt-4 overflow-x-auto w-full justify-center">
             <div
               className={`flex justify-center items-center h-16 sm:h-18 md:h-20 flex-shrink-0 rounded-2xl p-1 cursor-pointer transition-all duration-300 ${
                 selectedIndex === -1 ? 'border-3 border-blue-400 bg-blue-400/20' : 'hover:bg-white/10'
