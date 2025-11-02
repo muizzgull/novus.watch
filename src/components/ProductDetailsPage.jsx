@@ -58,7 +58,32 @@ export function ProductDetailsPage({ products, likedProducts, setLikedProducts, 
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Enhanced Background with gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900/80 to-slate-900"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+
+      {/* Advanced Animated background elements */}
+      <div className="absolute inset-0">
+        {/* Floating orbs */}
+        <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full opacity-70 animate-bounce" style={{animationDuration: '3s'}}></div>
+        <div className="absolute top-1/3 right-1/3 w-4 h-4 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full opacity-60 animate-pulse" style={{animationDuration: '4s'}}></div>
+        <div className="absolute bottom-1/3 left-1/3 w-2 h-2 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full opacity-80 animate-ping" style={{animationDuration: '2s'}}></div>
+        <div className="absolute bottom-1/4 right-1/4 w-3 h-3 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-full opacity-50 animate-bounce" style={{animationDuration: '5s'}}></div>
+        <div className="absolute top-1/2 left-1/2 w-5 h-5 bg-gradient-to-r from-indigo-400 to-purple-500 rounded-full opacity-40 animate-pulse" style={{animationDuration: '6s'}}></div>
+
+        {/* Geometric shapes */}
+        <div className="absolute top-1/6 right-1/6 w-1 h-16 bg-gradient-to-b from-transparent via-cyan-400/30 to-transparent rotate-45 animate-pulse" style={{animationDuration: '3s'}}></div>
+        <div className="absolute bottom-1/6 left-1/6 w-16 h-1 bg-gradient-to-r from-transparent via-purple-400/30 to-transparent animate-pulse" style={{animationDuration: '4s'}}></div>
+
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)`,
+            backgroundSize: '50px 50px'
+          }}></div>
+        </div>
+      </div>
 
 
       <Navbar cart={cart} />
@@ -76,6 +101,22 @@ export function ProductDetailsPage({ products, likedProducts, setLikedProducts, 
       )}
 
       <div className="relative z-10 flex flex-col lg:flex-row justify-center items-center min-h-screen p-4 lg:p-8">
+        {/* Hero Section */}
+        <div className="text-center mb-20 w-full">
+          <div className="inline-block mb-6">
+            <h1 className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300 mb-4 drop-shadow-2xl animate-pulse" style={{animationDuration: '4s'}}>
+              PRODUCT DETAILS
+            </h1>
+            <h2 className="text-4xl md:text-6xl font-bold text-white drop-shadow-xl">
+              {selectedProduct.name}
+            </h2>
+          </div>
+          <div className="flex justify-center items-center gap-2 mb-8">
+            <div className="w-16 h-1 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full"></div>
+            <div className="w-3 h-3 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-ping"></div>
+            <div className="w-16 h-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"></div>
+          </div>
+        </div>
         {/* Product Images Section */}
         <div className="img-container rounded-3xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border border-white/20 w-full max-w-sm sm:max-w-md lg:w-120 lg:h-140 flex flex-col justify-center items-center p-6 shadow-2xl mb-8 lg:mb-0 lg:mr-8">
           <img
