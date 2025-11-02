@@ -10,13 +10,12 @@ export function ProductDetailsPage({ products, likedProducts, setLikedProducts, 
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
   useEffect(() => {
-    const product = products.find(p => p.id === id);
-    if (product) {
-      setSelectedProduct(product);
-      setMainImage(product.image);
-    } else {
-      // Only navigate if products are loaded and product not found
-      if (products.length > 0) {
+    if (products.length > 0) {
+      const product = products.find(p => p.id === id);
+      if (product) {
+        setSelectedProduct(product);
+        setMainImage(product.image);
+      } else {
         navigate('/explore');
       }
     }
@@ -24,8 +23,8 @@ export function ProductDetailsPage({ products, likedProducts, setLikedProducts, 
 
   if (!selectedProduct) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-white text-xl">Loading...</div>
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center">
+        <div className="text-gray-600 text-xl">Loading...</div>
       </div>
     );
   }
