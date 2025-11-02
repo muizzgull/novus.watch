@@ -15,7 +15,10 @@ export function ProductDetailsPage({ products, likedProducts, setLikedProducts, 
       setSelectedProduct(product);
       setMainImage(product.image);
     } else {
-      navigate('/explore');
+      // Don't navigate immediately, wait for products to load
+      if (products.length > 0) {
+        navigate('/explore');
+      }
     }
   }, [id, products, navigate]);
 
