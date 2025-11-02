@@ -241,8 +241,7 @@ export function CartPage({ cart, setCart, addOrder }) {
                     onChange={(e) => {
                       const value = e.target.value;
                       // Prevent anything after .com
-                      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                      if (!value.includes('.com') || emailRegex.test(value)) {
+                      if (!value.includes('.com') || value.endsWith('.com')) {
                         handleInputChange(e);
                       }
                     }}
