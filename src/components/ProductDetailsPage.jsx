@@ -58,12 +58,7 @@ export function ProductDetailsPage({ products, likedProducts, setLikedProducts, 
   }
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
-      {/* Background with gradient overlay */}
-      <div
-        className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900/80 to-slate-900 inset-0 bg-cover bg-center bg-no-repeat"
-      ></div>
-      <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-gray-900/60 to-blue-900/70"></div>
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50">
 
       {/* Animated background elements */}
       <div className="absolute inset-0">
