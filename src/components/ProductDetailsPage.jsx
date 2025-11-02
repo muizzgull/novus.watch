@@ -170,7 +170,6 @@ export function ProductDetailsPage({ products, likedProducts, setLikedProducts, 
                 <p className="text-blue-100 ml-2 text-sm md:text-base">Like</p>
               </div>
             </div>
-            </div>
           </div>
         </div>
       </div>
