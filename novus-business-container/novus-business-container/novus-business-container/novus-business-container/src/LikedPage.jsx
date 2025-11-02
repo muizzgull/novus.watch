@@ -71,7 +71,7 @@ export function LikedPage({ likedProducts, setLikedProducts, cart, setCart }) {
           </h1>
           <div className="w-32 h-1 bg-gradient-to-r from-pink-400 to-red-400 mx-auto rounded-full mb-8"></div>
           <p className="text-xl md:text-2xl text-pink-100 max-w-3xl mx-auto drop-shadow-lg">
-            Your favorite pieces, saved for you
+            Your favorite pieces, carefully curated and saved just for you
           </p>
         </div>
 
@@ -91,7 +91,7 @@ export function LikedPage({ likedProducts, setLikedProducts, cart, setCart }) {
               </div>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
               {(likedProducts || []).map((likedProduct, i) => (
                 <div key={i} className="group relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border border-white/20 rounded-3xl p-6 hover:scale-105 transition-all duration-500 shadow-2xl hover:shadow-pink-500/25 overflow-hidden">
                   {/* Heart Icon Overlay */}
@@ -106,7 +106,7 @@ export function LikedPage({ likedProducts, setLikedProducts, cart, setCart }) {
                     <div className="relative mb-6">
                       <div className="absolute inset-0 bg-gradient-to-r from-pink-400/20 to-red-400/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
                       <img
-                        className="relative w-full h-58 sm:h-32 md:h-36 lg:h-40 xl:h-44 object-contain rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-500"
+                        className="relative w-full h-48 object-cover rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-500"
                         src={likedProduct.image}
                         alt={likedProduct.name}
                       />
